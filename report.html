@@ -1385,35 +1385,79 @@
                 </div>
             </div>
 
-            <div class="sub-heading">
-                <span>
-                    IV.1. Bảng số liệu mức cường độ âm theo vị trí / khoảng cách
-                    <span class="row-counter-badge no-print" id="dbCountBadge">1 / 10 dòng</span>
-                </span>
-                <button type="button" class="inline-btn no-print" id="btnAddDb" onclick="addDbRow()">+ Thêm vị trí đo
-                    (Tối đa 10)</button>
-            </div>
-            <div class="table-scroll-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 16%;">Vị trí đo</th>
-                            <th style="width: 15%;">Khoảng cách <i>r</i> (m)</th>
-                            <th style="width: 15%;"><i>L</i><sub>min</sub> (dB)</th>
-                            <th style="width: 15%;"><i>L</i><sub>max</sub> (dB)</th>
-                            <th style="width: 16%;"><i>L</i><sub>TB</sub> (dB)</th>
-                            <th style="width: 15%;">Độ giảm Δ<i>L</i></th>
-                            <th class="no-print col-delete" style="width: 8%;">Xóa</th>
-                        </tr>
-                    </thead>
-                    <tbody id="dbBody"></tbody>
-                </table>
+            <!-- Khối 1 nguồn Phần IV -->
+            <div id="part4SingleBlock">
+                <div class="sub-heading">
+                    <span>IV.1. Đồ thị biến thiên mức cường độ âm <i>L</i>(<i>t</i>) theo từng vị trí đo</span>
+                </div>
+                <div class="per-row-graphs-grid single-item" id="dbGraphsGrid1"></div>
+
+                <div class="sub-heading">
+                    <span>
+                        IV.2. Bảng số liệu mức cường độ âm theo vị trí
+                        <span class="row-counter-badge no-print" id="dbCountBadge1">1 / 10 dòng</span>
+                    </span>
+                    <button type="button" class="inline-btn no-print" id="btnAddDb1" onclick="addDbRow1()">+ Thêm vị trí
+                        đo 1 nguồn (Tối đa 10)</button>
+                </div>
+                <div class="table-scroll-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 16%;">Vị trí đo</th>
+                                <th style="width: 15%;">Khoảng cách <i>r</i> (m)</th>
+                                <th style="width: 15%;"><i>L</i><sub>min</sub> (dB)</th>
+                                <th style="width: 15%;"><i>L</i><sub>max</sub> (dB)</th>
+                                <th style="width: 16%;"><i>L</i><sub>TB</sub> (dB)</th>
+                                <th style="width: 15%;">Độ giảm Δ<i>L</i></th>
+                                <th class="no-print col-delete" style="width: 8%;">Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dbBody1"></tbody>
+                    </table>
+                </div>
             </div>
 
-            <div class="sub-heading">
-                <span>IV.2. Đồ thị biến thiên mức cường độ âm <i>L</i>(<i>t</i>) theo từng vị trí đo</span>
+            <!-- Khối 2 nguồn Phần IV -->
+            <div id="part4DualBlock" style="display: none;">
+                <div class="sub-heading">
+                    <span>IV.3. Đồ thị biến thiên mức cường độ âm <i>L</i>(<i>t</i>) theo từng vị trí đo (Chung 2 nguồn)</span>
+                </div>
+                <div class="per-row-graphs-grid single-item" id="dbGraphsGrid2"></div>
+
+                <div class="sub-heading">
+                    <span>
+                        IV.4. Bảng số liệu mức cường độ âm theo vị trí (2 nguồn)
+                        <span class="row-counter-badge no-print" id="dbCountBadge2">1 / 10 cặp</span>
+                    </span>
+                    <button type="button" class="inline-btn no-print" id="btnAddDb2" onclick="addDbRow2()">+ Thêm vị trí
+                        đo 2 nguồn (Tối đa 10)</button>
+                </div>
+                <div class="table-scroll-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 14%;">Vị trí đo</th>
+                                <th style="width: 17%;">Nguồn / Kênh</th>
+                                <th style="width: 12%;">Khoảng cách <i>r</i> (m)</th>
+                                <th style="width: 11%;"><i>L</i><sub>min</sub> (dB)</th>
+                                <th style="width: 11%;"><i>L</i><sub>max</sub> (dB)</th>
+                                <th style="width: 11%;"><i>L</i><sub>TB</sub> (dB)</th>
+                                <th style="width: 16%;">Khoảng cách hai nguồn<br>Δ<i>r</i> = |<i>r</i><sub>1</sub> − <i>r</i><sub>2</sub>| (m)</th>
+                                <th class="no-print col-delete" style="width: 8%;">Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dbBody2"></tbody>
+                    </table>
+                </div>
+
+                <div class="result-box">
+                    <p id="resDualDb"><strong>Kết quả đo mức cường độ âm 2 nguồn:</strong> &nbsp;
+                        <i>r</i><sub>1</sub> = — m &nbsp;|&nbsp; <i>r</i><sub>2</sub> = — m &nbsp;|&nbsp; Khoảng cách hai nguồn
+                        Δ<i>r</i> = |<i>r</i><sub>1</sub> − <i>r</i><sub>2</sub>| = — m
+                    </p>
+                </div>
             </div>
-            <div class="per-row-graphs-grid single-item" id="dbGraphsGrid"></div>
         </section>
 
         <!-- ===================================================================== -->
@@ -1461,7 +1505,8 @@
         let kinRows2 = [];
         let sumRows2 = [];
         let fftRows1 = [];
-        let dbRows = [];
+        let dbRows1 = [];
+        let dbRows2 = [];
 
         let singleRowOverwriteMode = true;
         let dualSourceMode = false;
@@ -1549,6 +1594,11 @@
                 chkPart3Item.style.display = dualSourceMode ? "none" : "";
             }
             if (p3Single) p3Single.style.display = dualSourceMode ? "none" : "";
+
+            const p4Single = byId("part4SingleBlock");
+            const p4Dual = byId("part4DualBlock");
+            if (p4Single) p4Single.style.display = dualSourceMode ? "none" : "";
+            if (p4Dual) p4Dual.style.display = dualSourceMode ? "" : "none";
         }
 
         function updateSyncRowModeUI() {
@@ -1593,7 +1643,8 @@
                 if (kinRows2.length > 1) { kinRows2 = [kinRows2[0]]; trimmed = true; }
                 if (sumRows2.length > 1) { sumRows2 = [sumRows2[0]]; trimmed = true; }
                 if (fftRows1.length > 1) { fftRows1 = [fftRows1[0]]; trimmed = true; }
-                if (dbRows.length > 1) { dbRows = [dbRows[0]]; trimmed = true; }
+                if (dbRows1.length > 1) { dbRows1 = [dbRows1[0]]; trimmed = true; }
+                if (dbRows2.length > 1) { dbRows2 = [dbRows2[0]]; trimmed = true; }
                 if (trimmed) renderAllSections();
             }
             updateSyncRowModeUI();
@@ -1770,7 +1821,9 @@
                     tongHopSong2: sanitizeDualRows(sumRows2),
                     phoTanSo: sanitizeSingleRows(fftRows1),
                     phoTanSo1: sanitizeSingleRows(fftRows1),
-                    mucCuongDoAm: sanitizeSingleRows(dbRows),
+                    mucCuongDoAm: sanitizeSingleRows(dbRows1),
+                    mucCuongDoAm1: sanitizeSingleRows(dbRows1),
+                    mucCuongDoAm2: sanitizeDualRows(dbRows2),
                     _selectedParts: getSelectedPartIds(),
                     _singleRowOverwrite: Boolean(singleRowOverwriteMode),
                     _dualSourceMode: Boolean(dualSourceMode),
@@ -1824,7 +1877,12 @@
                         })),
                         phoTanSo: stripOldImgs(fftRows1),
                         phoTanSo1: stripOldImgs(fftRows1),
-                        mucCuongDoAm: stripOldImgs(dbRows),
+                        mucCuongDoAm: stripOldImgs(dbRows1),
+                        mucCuongDoAm1: stripOldImgs(dbRows1),
+                        mucCuongDoAm2: dbRows2.map(({ a, b }) => ({
+                            a: { ...a, imageBase64: null },
+                            b: { ...b, imageBase64: null }
+                        })),
                         _singleRowOverwrite: Boolean(singleRowOverwriteMode),
                         _dualSourceMode: Boolean(dualSourceMode),
                         _singleChannelToDual: Boolean(dualSourceMode),
@@ -1951,7 +2009,8 @@
                 kin1: (data.doThiLienQuan1 || data.doThiLienQuan || []).map(r => [r.kenh || "", r.f_Hz, r.ampU, r.eqU, r.eqV, r.eqA, hashImgQuick(r.imageBase64 || r.anhBase64)]),
                 kin2: (data.doThiLienQuan2 || []).map(p => [p.a?.f_Hz, p.a?.ampU, p.a?.eqU, p.b?.f_Hz, p.b?.ampU, p.b?.eqU, hashImgQuick(p.a?.imageBase64), hashImgQuick(p.b?.imageBase64)]),
                 fft1: (data.phoTanSo1 || data.phoTanSo || []).map(r => [r.kenh || "", r.nguon, r.f0, r.hoaAm, r.dacDiem, hashImgQuick(r.imageBase64 || r.anhBase64)]),
-                db: (data.mucCuongDoAm || []).map(r => [r.kenh || "", r.viTri, r.r, r.lMin, r.lMax, r.lAvg, hashImgQuick(r.imageBase64 || r.anhBase64)]),
+                db1: (data.mucCuongDoAm1 || data.mucCuongDoAm || []).map(r => [r.kenh || "", r.viTri, r.r, r.lMin, r.lMax, r.lAvg, hashImgQuick(r.imageBase64 || r.anhBase64)]),
+                db2: (data.mucCuongDoAm2 || []).map(p => [p.a?.viTri, p.a?.r, p.a?.lMin, p.a?.lMax, p.a?.lAvg, p.b?.r, p.b?.lMin, p.b?.lMax, p.b?.lAvg, hashImgQuick(p.a?.imageBase64), hashImgQuick(p.b?.imageBase64)]),
                 img1: hashImgQuick(data.anhDoThiBase64),
                 imgKin: hashImgQuick(data.anhDoThiLienQuanBase64),
                 img2: hashImgQuick(data.anhPhoBase64),
@@ -2069,6 +2128,14 @@
             return { kenh: "", viTri: `Điểm ${idx + 1}`, r: 0.5, lMin: 0, lMax: 0, lAvg: 0, imageBase64: null };
         }
 
+        function makeBlankDbPair(idx = 0) {
+            const label = `Điểm ${idx + 1}`;
+            return {
+                a: { kenh: "Kênh A", viTri: label, r: 0.5, lMin: 0, lMax: 0, lAvg: 0, imageBase64: null },
+                b: { kenh: "Kênh B", viTri: label, r: 1.0, lMin: 0, lMax: 0, lAvg: 0, imageBase64: null }
+            };
+        }
+
         function isBlankOscRow(r) {
             return !r || ((Number(r.deltaT_ms) || 0) <= 0 && !r.imageBase64);
         }
@@ -2093,6 +2160,10 @@
             return !r || ((Number(r.lAvg) || 0) <= 0 && (Number(r.lMax) || 0) <= 0 && !r.imageBase64);
         }
 
+        function isBlankDbPair(p) {
+            return !p || (isBlankDbRow(p.a) && isBlankDbRow(p.b));
+        }
+
         function isSampleDataArray(rows, checkerFn) {
             if (!Array.isArray(rows) || rows.length === 0) return true;
             if (rows.length === 1 && checkerFn(rows[0])) return true;
@@ -2113,7 +2184,8 @@
                 kinRows2.every(isBlankKinPair) &&
                 sumRows2.every(isBlankKinPair) &&
                 fftRows1.every(isBlankFftRow) &&
-                dbRows.every(isBlankDbRow)
+                dbRows1.every(isBlankDbRow) &&
+                dbRows2.every(isBlankDbPair)
             );
         }
 
@@ -2496,7 +2568,7 @@
                 }
             } catch (e) { }
 
-            if (oscRows1.length === 0 && oscRows2.length === 0 && kinRows1.length === 0 && kinRows2.length === 0 && sumRows2.length === 0 && fftRows1.length === 0 && dbRows.length === 0) {
+            if (oscRows1.length === 0 && oscRows2.length === 0 && kinRows1.length === 0 && kinRows2.length === 0 && sumRows2.length === 0 && fftRows1.length === 0 && dbRows1.length === 0 && dbRows2.length === 0) {
                 initDefaultTables();
             }
         }
@@ -2508,7 +2580,8 @@
             kinRows2 = [makeBlankKinPair()];
             sumRows2 = [makeBlankKinPair()];
             fftRows1 = [makeBlankFftSingle(0)];
-            dbRows = [makeBlankDbRow(0)];
+            dbRows1 = [makeBlankDbRow(0)];
+            dbRows2 = [makeBlankDbPair(0)];
             singleRowOverwriteMode = true;
             dualSourceMode = false;
             updateSyncRowModeUI();
@@ -2559,7 +2632,8 @@
                 kinRows2 = [makeBlankKinPair()];
                 sumRows2 = [makeBlankKinPair()];
                 fftRows1 = [makeBlankFftSingle(0)];
-                dbRows = [makeBlankDbRow(0)];
+                dbRows1 = [makeBlankDbRow(0)];
+                dbRows2 = [makeBlankDbPair(0)];
 
                 singleRowOverwriteMode = true;
                 updateSyncRowModeUI();
@@ -2707,8 +2781,9 @@
                         ? rawFft1.slice(0, MAX_ROWS).map((r, idx) => normalizeSavedFftSingle(r, idx, dualSourceMode))
                         : [makeBlankFftSingle(0)];
 
-                    dbRows = (Array.isArray(data.mucCuongDoAm) && data.mucCuongDoAm.length > 0)
-                        ? data.mucCuongDoAm.slice(0, MAX_ROWS).map((r, idx) => ({
+                    const rawDb1 = Array.isArray(data.mucCuongDoAm1) ? data.mucCuongDoAm1 : (Array.isArray(data.mucCuongDoAm) ? data.mucCuongDoAm : []);
+                    dbRows1 = rawDb1.length > 0
+                        ? rawDb1.slice(0, MAX_ROWS).map((r, idx) => ({
                             kenh: dualSourceMode ? normalizeChannelTag(r) : "",
                             viTri: r.viTri || `Điểm ${idx + 1}`,
                             r: Math.max(0, normalizeNumber(r.r, 0.5)),
@@ -2718,6 +2793,33 @@
                             imageBase64: r.imageBase64 || r.anhBase64 || null
                         }))
                         : [makeBlankDbRow(0)];
+
+                    const rawDb2 = Array.isArray(data.mucCuongDoAm2) ? data.mucCuongDoAm2 : [];
+                    dbRows2 = rawDb2.length > 0
+                        ? rawDb2.slice(0, MAX_ROWS).map((p, idx) => {
+                            const locFallback = `Điểm ${idx + 1}`;
+                            return {
+                                a: {
+                                    kenh: "Kênh A",
+                                    viTri: (p?.a?.viTri || locFallback).replace(/\s*\(Kênh [AB]\)\s*$/i, ""),
+                                    r: Math.max(0, normalizeNumber(p?.a?.r, 0.5)),
+                                    lMin: normalizeNumber(p?.a?.lMin, 0),
+                                    lMax: normalizeNumber(p?.a?.lMax, 0),
+                                    lAvg: normalizeNumber(p?.a?.lAvg, 0),
+                                    imageBase64: p?.a?.imageBase64 || p?.a?.anhBase64 || null
+                                },
+                                b: {
+                                    kenh: "Kênh B",
+                                    viTri: (p?.b?.viTri || p?.a?.viTri || locFallback).replace(/\s*\(Kênh [AB]\)\s*$/i, ""),
+                                    r: Math.max(0, normalizeNumber(p?.b?.r, 1.0)),
+                                    lMin: normalizeNumber(p?.b?.lMin, 0),
+                                    lMax: normalizeNumber(p?.b?.lMax, 0),
+                                    lAvg: normalizeNumber(p?.b?.lAvg, 0),
+                                    imageBase64: p?.b?.imageBase64 || p?.b?.anhBase64 || null
+                                }
+                            };
+                        })
+                        : [makeBlankDbPair(0)];
 
                     lastAppliedPayloadHash = fp;
                     updateSyncRowModeUI();
@@ -2729,7 +2831,7 @@
                 return;
             }
 
-            const isFreshInit = (oscRows1.length === 0 && oscRows2.length === 0 && kinRows1.length === 0 && kinRows2.length === 0 && sumRows2.length === 0 && fftRows1.length === 0 && dbRows.length === 0);
+            const isFreshInit = (oscRows1.length === 0 && oscRows2.length === 0 && kinRows1.length === 0 && kinRows2.length === 0 && sumRows2.length === 0 && fftRows1.length === 0 && dbRows1.length === 0 && dbRows2.length === 0);
             if (isFreshInit) {
                 const savedDual = Boolean(data._dualSourceMode || data._singleChannelToDual);
                 if (typeof data._singleRowOverwrite === "boolean") {
@@ -2769,7 +2871,7 @@
                     ? data.mucCuongDoAm1
                     : ((String(data.syncFeature || "") !== "db" && Array.isArray(data.mucCuongDoAm) && data.mucCuongDoAm.length > 0) ? data.mucCuongDoAm : null);
                 if (savedDbList) {
-                    dbRows = savedDbList.slice(0, MAX_ROWS).map((r, idx) => ({
+                    dbRows1 = savedDbList.slice(0, MAX_ROWS).map((r, idx) => ({
                         kenh: savedDual ? normalizeChannelTag(r) : "",
                         viTri: r.viTri || `Điểm ${idx + 1}`,
                         r: Math.max(0, normalizeNumber(r.r, 0.5)),
@@ -2778,6 +2880,31 @@
                         lAvg: normalizeNumber(r.lAvg, 0),
                         imageBase64: r.imageBase64 || r.anhBase64 || null
                     }));
+                }
+                if (Array.isArray(data.mucCuongDoAm2) && data.mucCuongDoAm2.length > 0) {
+                    dbRows2 = data.mucCuongDoAm2.slice(0, MAX_ROWS).map((p, idx) => {
+                        const locFallback = `Điểm ${idx + 1}`;
+                        return {
+                            a: {
+                                kenh: "Kênh A",
+                                viTri: (p?.a?.viTri || locFallback).replace(/\s*\(Kênh [AB]\)\s*$/i, ""),
+                                r: Math.max(0, normalizeNumber(p?.a?.r, 0.5)),
+                                lMin: normalizeNumber(p?.a?.lMin, 0),
+                                lMax: normalizeNumber(p?.a?.lMax, 0),
+                                lAvg: normalizeNumber(p?.a?.lAvg, 0),
+                                imageBase64: p?.a?.imageBase64 || p?.a?.anhBase64 || null
+                            },
+                            b: {
+                                kenh: "Kênh B",
+                                viTri: (p?.b?.viTri || p?.a?.viTri || locFallback).replace(/\s*\(Kênh [AB]\)\s*$/i, ""),
+                                r: Math.max(0, normalizeNumber(p?.b?.r, 1.0)),
+                                lMin: normalizeNumber(p?.b?.lMin, 0),
+                                lMax: normalizeNumber(p?.b?.lMax, 0),
+                                lAvg: normalizeNumber(p?.b?.lAvg, 0),
+                                imageBase64: p?.b?.imageBase64 || p?.b?.anhBase64 || null
+                            }
+                        };
+                    });
                 }
                 if (data._lastIncomingSyncToken) lastIncomingSyncToken = data._lastIncomingSyncToken;
                 if (data._lastIncomingSignalSig) lastIncomingSignalSig = data._lastIncomingSignalSig;
@@ -2789,7 +2916,8 @@
             if (kinRows2.length === 0) kinRows2 = [makeBlankKinPair()];
             if (sumRows2.length === 0) sumRows2 = [makeBlankKinPair()];
             if (fftRows1.length === 0) fftRows1 = [makeBlankFftSingle(0)];
-            if (dbRows.length === 0) dbRows = [makeBlankDbRow(0)];
+            if (dbRows1.length === 0) dbRows1 = [makeBlankDbRow(0)];
+            if (dbRows2.length === 0) dbRows2 = [makeBlankDbPair(0)];
 
             const now = Date.now();
             const sig = computeIncomingSignalSignature(data);
@@ -2918,16 +3046,40 @@
                 }
 
                 if (allowDb && dbEntries.length > 0) {
-                    const dbToApply = dualSourceMode ? dbEntries : [dbEntries[0]];
-                    const resDb = applySingleEntries(dbRows, dbToApply, isBlankDbRow, (entry, prevRows) => {
-                        const sameNameCount = prevRows.filter(r => r.viTri === entry.viTri || r.viTri.startsWith(entry.viTri + " (")).length;
-                        if (sameNameCount > 0) {
-                            entry.viTri = `${entry.viTri} (${prevRows.length + 1})`;
+                    if (dualSourceMode) {
+                        const baseLoc = (dbEntries[0].viTri || "Điểm đo").replace(/\s*\(Kênh [AB]\)\s*$/i, "");
+                        let resolvedLoc = baseLoc;
+                        if (!singleRowOverwriteMode && !(dbRows2.length === 1 && isBlankDbPair(dbRows2[0]))) {
+                            const sameNameCount = dbRows2.filter(p => {
+                                const existingLoc = (p.a?.viTri || "").replace(/\s*\(Kênh [AB]\)\s*$/i, "");
+                                return existingLoc === baseLoc || existingLoc.startsWith(baseLoc + " (");
+                            }).length;
+                            if (sameNameCount > 0) {
+                                resolvedLoc = `${baseLoc} (${dbRows2.length + 1})`;
+                            }
                         }
-                    });
-                    dbRows = resDb.rows;
-                    anyChanged = anyChanged || resDb.changed;
-                    anyOverflow = anyOverflow || resDb.overflow;
+                        const sharedSnap = dbEntries[0].imageBase64 || (dbEntries[1] && dbEntries[1].imageBase64) || null;
+                        const dualDbEntries = dbEntries.map((item, idx) => Object.assign({}, item, {
+                            kenh: item.kenh || (idx === 0 ? "Kênh A" : "Kênh B"),
+                            viTri: resolvedLoc,
+                            imageBase64: sharedSnap
+                        }));
+                        const resDb2 = applyDualEntries(dbRows2, dualDbEntries, isBlankDbRow, isBlankDbPair, makeBlankDbPair);
+                        dbRows2 = resDb2.rows;
+                        anyChanged = anyChanged || resDb2.changed;
+                        anyOverflow = anyOverflow || resDb2.overflow;
+                        if (resDb2.changed) routedToDual = true;
+                    } else {
+                        const resDb1 = applySingleEntries(dbRows1, [dbEntries[0]], isBlankDbRow, (entry, prevRows) => {
+                            const sameNameCount = prevRows.filter(r => r.viTri === entry.viTri || r.viTri.startsWith(entry.viTri + " (")).length;
+                            if (sameNameCount > 0) {
+                                entry.viTri = `${entry.viTri} (${prevRows.length + 1})`;
+                            }
+                        });
+                        dbRows1 = resDb1.rows;
+                        anyChanged = anyChanged || resDb1.changed;
+                        anyOverflow = anyOverflow || resDb1.overflow;
+                    }
                 }
 
                 if (syncToken) lastIncomingSyncToken = syncToken;
@@ -2976,14 +3128,16 @@
                 renderKinGraphs1();
                 renderFftTable1();
                 renderFftGraphs1();
+                renderDbTable1();
+                renderDbGraphs1();
             } else {
                 renderOscTable2();
                 renderOscGraphs2();
                 renderKinTable2();
                 renderKinGraphs2();
+                renderDbTable2();
+                renderDbGraphs2();
             }
-            renderDbTable();
-            renderDbGraphs();
             updateDualSourceVisibility();
         }
 
@@ -2992,11 +3146,12 @@
                 renderOscGraphs1();
                 renderKinGraphs1();
                 renderFftGraphs1();
+                renderDbGraphs1();
             } else {
                 renderOscGraphs2();
                 renderKinGraphs2();
+                renderDbGraphs2();
             }
-            renderDbGraphs();
         }
 
         window.addEventListener("storage", (e) => {
@@ -4233,20 +4388,20 @@
             ctx.fillText(`${row.viTri} (r = ${Number(row.r).toFixed(1)} m): L_min = ${lMin.toFixed(1)} dB | L_TB = ${lAvg.toFixed(1)} dB | L_max = ${lMax.toFixed(1)} dB`, 16, h - 7);
         }
 
-        function renderDbGraphs() {
-            const grid = byId("dbGraphsGrid");
+        function renderDbGraphs1() {
+            const grid = byId("dbGraphsGrid1");
             if (!grid) return;
-            grid.className = "per-row-graphs-grid" + (dbRows.length <= 1 ? " single-item" : "");
+            grid.className = "per-row-graphs-grid" + (dbRows1.length <= 1 ? " single-item" : "");
             grid.innerHTML = "";
 
-            dbRows.forEach((row, idx) => {
-                const canvasId = `canvasDb_${idx}`;
+            dbRows1.forEach((row, idx) => {
+                const canvasId = `canvasDb1_${idx}`;
                 const card = document.createElement("div");
                 card.className = "graph-card";
                 card.innerHTML = `
  <div class="graph-card-header">
- <span>Hình IV.2.${idx + 1}. Mức cường độ âm – ${row.viTri} (r = ${Number(row.r).toFixed(1)} m)</span>
- <button type="button" class="inline-btn inline-btn-img no-print" onclick="exportSingleCanvas('${canvasId}', 'Phan4_Diem${idx + 1}')">Tải hình</button>
+ <span>Hình IV.1.${idx + 1}. Mức cường độ âm – ${row.viTri} (r = ${Number(row.r).toFixed(2)} m)</span>
+ <button type="button" class="inline-btn inline-btn-img no-print" onclick="exportSingleCanvas('${canvasId}', 'Phan4_1Nguon_Diem${idx + 1}')">Tải hình</button>
  </div>
  <canvas id="${canvasId}" width="560" height="175"></canvas>
  <div class="graph-caption" contenteditable="true" oninput="schedulePersistReportEdits()">
@@ -4255,6 +4410,96 @@
  `;
                 grid.appendChild(card);
                 drawDbRowCanvas(canvasId, row, idx);
+            });
+        }
+
+        function drawGeneratedDualDbChart(canvasId, pair, idx) {
+            const c = byId(canvasId);
+            if (!c) return;
+            const ctx = c.getContext("2d");
+            const w = c.width, h = c.height;
+            drawGrid(ctx, w, h, 14, 5);
+
+            const baseY = h - 24;
+            const topY = 22;
+            const mapY = (db) => {
+                const clamped = Math.max(0, Math.min(120, db));
+                return baseY - (clamped / 120) * (baseY - topY);
+            };
+
+            const drawCurve = (row, color, dashed, phaseShift) => {
+                const lMin = Number(row.lMin) || 0;
+                const lMax = Number(row.lMax) || 0;
+                const lAvg = Number(row.lAvg) || 0;
+                const midVal = lAvg > 0 ? lAvg : (lMin + lMax) / 2;
+                const halfSpan = Math.max(1, (lMax - lMin) / 2);
+
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2;
+                ctx.setLineDash(dashed ? [6, 3] : []);
+                ctx.beginPath();
+                for (let x = 28; x <= w - 16; x += 6) {
+                    const val = midVal + halfSpan * Math.sin(x * 0.11 + phaseShift) * Math.cos(x * 0.04);
+                    const y = mapY(val);
+                    if (x === 28) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+                ctx.setLineDash([]);
+            };
+
+            drawCurve(pair.a, "#dc2626", false, idx);
+            drawCurve(pair.b, "#2563eb", true, idx + 1.4);
+
+            const rA = Number(pair.a.r) || 0;
+            const rB = Number(pair.b.r) || 0;
+            const deltaR = Math.abs(rA - rB);
+            const locName = (pair.a.viTri || `Điểm ${idx + 1}`).replace(/\s*\(Kênh [AB]\)\s*$/i, "");
+
+            ctx.font = "bold 10.5px Times New Roman";
+            ctx.fillStyle = "#dc2626";
+            ctx.fillText(`— Nguồn 1 (Kênh A): L_TB = ${(Number(pair.a.lAvg) || 0).toFixed(1)} dB (r₁ = ${rA.toFixed(2)} m)`, 14, 15);
+            ctx.fillStyle = "#2563eb";
+            ctx.fillText(`--- Nguồn 2 (Kênh B): L_TB = ${(Number(pair.b.lAvg) || 0).toFixed(1)} dB (r₂ = ${rB.toFixed(2)} m)`, Math.max(255, w * 0.48), 15);
+
+            ctx.fillStyle = "#0f172a";
+            ctx.font = "bold 11px Times New Roman";
+            ctx.fillText(`${locName}: Khoảng cách hai nguồn Δr = |r₁ − r₂| = ${deltaR.toFixed(2)} m`, 16, h - 7);
+        }
+
+        function renderDbGraphs2() {
+            const grid = byId("dbGraphsGrid2");
+            if (!grid) return;
+            grid.className = "per-row-graphs-grid" + (dbRows2.length <= 1 ? " single-item" : "");
+            grid.innerHTML = "";
+
+            dbRows2.forEach((pair, idx) => {
+                const canvasId = `canvasDb2_${idx}`;
+                const locName = (pair.a.viTri || `Điểm ${idx + 1}`).replace(/\s*\(Kênh [AB]\)\s*$/i, "");
+                const rA = Number(pair.a.r) || 0;
+                const rB = Number(pair.b.r) || 0;
+                const deltaR = Math.abs(rA - rB);
+                const sharedImg = pair.a.imageBase64 || pair.b.imageBase64 || null;
+
+                const card = document.createElement("div");
+                card.className = "graph-card";
+                card.innerHTML = `
+ <div class="graph-card-header">
+ <span>Hình IV.3.${idx + 1}. Mức cường độ âm 2 nguồn – ${locName}</span>
+ <button type="button" class="inline-btn inline-btn-img no-print" onclick="exportSingleCanvas('${canvasId}', 'Phan4_2Nguon_Diem${idx + 1}')">Tải hình</button>
+ </div>
+ <canvas id="${canvasId}" width="580" height="185"></canvas>
+ <div class="graph-caption" contenteditable="true" oninput="schedulePersistReportEdits()">
+ Nguồn 1: L_TB = ${(Number(pair.a.lAvg) || 0).toFixed(1)} dB (r₁ = ${rA.toFixed(2)} m) | Nguồn 2: L_TB = ${(Number(pair.b.lAvg) || 0).toFixed(1)} dB (r₂ = ${rB.toFixed(2)} m) | Δr = ${deltaR.toFixed(2)} m
+ </div>
+ `;
+                grid.appendChild(card);
+
+                if (sharedImg) {
+                    drawBase64ToCanvas(canvasId, sharedImg, () => drawGeneratedDualDbChart(canvasId, pair, idx));
+                } else {
+                    drawGeneratedDualDbChart(canvasId, pair, idx);
+                }
             });
         }
 
@@ -4531,12 +4776,12 @@
             persistReportEdits();
         }
 
-        function renderDbTable() {
-            const tbody = byId("dbBody");
+        function renderDbTable1() {
+            const tbody = byId("dbBody1");
             if (!tbody) return;
             tbody.innerHTML = "";
-            const baseL = dbRows.length ? Number(dbRows[0].lAvg) || 0 : 0;
-            dbRows.forEach((r, i) => {
+            const baseL = dbRows1.length ? Number(dbRows1[0].lAvg) || 0 : 0;
+            dbRows1.forEach((r, i) => {
                 const currentAvg = Number(r.lAvg) || 0;
                 const deltaVal = currentAvg - baseL;
                 const diff = i === 0
@@ -4544,68 +4789,189 @@
                     : (deltaVal > 0 ? "+" + deltaVal.toFixed(1) : deltaVal.toFixed(1)) + " dB";
                 const tr = document.createElement("tr");
                 tr.innerHTML = `
- <td contenteditable="true" onblur="updateDb(${i}, 'viTri', this.textContent, this)">${r.viTri}</td>
- <td contenteditable="true" onblur="updateDb(${i}, 'r', this.textContent, this)">${Number(r.r).toFixed(1)}</td>
- <td contenteditable="true" onblur="updateDb(${i}, 'lMin', this.textContent, this)">${Number(r.lMin).toFixed(1)}</td>
- <td contenteditable="true" onblur="updateDb(${i}, 'lMax', this.textContent, this)">${Number(r.lMax).toFixed(1)}</td>
- <td contenteditable="true" onblur="updateDb(${i}, 'lAvg', this.textContent, this)">${currentAvg.toFixed(1)}</td>
+ <td contenteditable="true" onblur="updateDb1(${i}, 'viTri', this.textContent, this)">${r.viTri}</td>
+ <td contenteditable="true" onblur="updateDb1(${i}, 'r', this.textContent, this)">${Number(r.r).toFixed(2)}</td>
+ <td contenteditable="true" onblur="updateDb1(${i}, 'lMin', this.textContent, this)">${Number(r.lMin).toFixed(1)}</td>
+ <td contenteditable="true" onblur="updateDb1(${i}, 'lMax', this.textContent, this)">${Number(r.lMax).toFixed(1)}</td>
+ <td contenteditable="true" onblur="updateDb1(${i}, 'lAvg', this.textContent, this)">${currentAvg.toFixed(1)}</td>
  <td>${diff}</td>
- <td class="no-print col-delete"><button type="button" class="row-del-btn" onclick="delDb(${i})" title="Xóa dòng này">×</button></td>
+ <td class="no-print col-delete"><button type="button" class="row-del-btn" onclick="delDb1(${i})" title="Xóa dòng này">×</button></td>
  `;
                 tbody.appendChild(tr);
             });
 
-            const badge = byId("dbCountBadge");
-            if (badge) badge.textContent = `${dbRows.length} / ${MAX_ROWS} dòng`;
-            const btnAdd = byId("btnAddDb");
-            if (btnAdd) btnAdd.disabled = dbRows.length >= MAX_ROWS;
+            const badge = byId("dbCountBadge1");
+            if (badge) badge.textContent = `${dbRows1.length} / ${MAX_ROWS} dòng`;
+            const btnAdd = byId("btnAddDb1");
+            if (btnAdd) btnAdd.disabled = dbRows1.length >= MAX_ROWS;
         }
 
-        function updateDb(i, k, val, cellEl) {
-            const prevVal = dbRows[i]?.[k];
+        function updateDb1(i, k, val, cellEl) {
+            const prevVal = dbRows1[i]?.[k];
             if (k === "viTri") {
                 const clean = String(val || "").trim();
-                if (clean) dbRows[i].viTri = clean;
+                if (clean) dbRows1[i].viTri = clean;
                 else if (cellEl && prevVal) cellEl.textContent = prevVal;
             } else {
                 const n = parseFloat(String(val || "").replace(",", ".").trim());
                 if (!isNaN(n) && (k !== "r" || n >= 0)) {
-                    dbRows[i][k] = n;
+                    dbRows1[i][k] = n;
                 } else {
-                    if (cellEl && prevVal !== undefined) cellEl.textContent = Number(prevVal).toFixed(1);
+                    if (cellEl && prevVal !== undefined) cellEl.textContent = Number(prevVal).toFixed(k === "r" ? 2 : 1);
                     showToast("Vui lòng nhập giá trị số hợp lệ!");
                 }
             }
-            renderDbTable();
-            renderDbGraphs();
+            renderDbTable1();
+            renderDbGraphs1();
             persistReportEdits();
         }
 
-        function addDbRow() {
-            if (dbRows.length >= MAX_ROWS) {
+        function addDbRow1() {
+            if (dbRows1.length >= MAX_ROWS) {
                 showToast(`Đã đạt tối đa ${MAX_ROWS} dòng dữ liệu!`);
                 return;
             }
-            const nextR = dbRows.length > 0 ? Number(dbRows[dbRows.length - 1].r) + 0.5 : 0.5;
-            dbRows.push({ kenh: "", viTri: `Điểm ${dbRows.length + 1}`, r: nextR, lMin: 0, lMax: 0, lAvg: 0, imageBase64: null });
-            renderDbTable();
-            renderDbGraphs();
+            const nextR = dbRows1.length > 0 ? Number(dbRows1[dbRows1.length - 1].r) + 0.5 : 0.5;
+            dbRows1.push({ kenh: "", viTri: `Điểm ${dbRows1.length + 1}`, r: nextR, lMin: 0, lMax: 0, lAvg: 0, imageBase64: null });
+            renderDbTable1();
+            renderDbGraphs1();
             persistReportEdits();
         }
 
-        function delDb(i) {
-            if (dbRows.length <= 1) {
-                showToast("Cần giữ lại ít nhất 1 dòng dữ liệu ở bảng Phần IV!");
+        function delDb1(i) {
+            if (dbRows1.length <= 1) {
+                showToast("Cần giữ lại ít nhất 1 dòng dữ liệu ở bảng IV.2!");
                 return;
             }
             const removedFirst = (i === 0);
-            dbRows.splice(i, 1);
-            renderDbTable();
-            renderDbGraphs();
+            dbRows1.splice(i, 1);
+            renderDbTable1();
+            renderDbGraphs1();
             persistReportEdits();
             if (removedFirst) {
                 showToast("Đã xóa dòng mốc đầu tiên; dòng 1 hiện tại trở thành mốc ΔL = 0,0 dB.");
             }
+        }
+
+        function renderDbTable2() {
+            const tbody = byId("dbBody2");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+
+            let sumR1 = 0, sumR2 = 0, sumDr = 0, validCnt = 0;
+
+            dbRows2.forEach((pair, i) => {
+                const locName = (pair.a.viTri || `Điểm ${i + 1}`).replace(/\s*\(Kênh [AB]\)\s*$/i, "");
+                const rA = Number(pair.a.r) || 0;
+                const rB = Number(pair.b.r) || 0;
+                const deltaR = Math.abs(rA - rB);
+
+                if (rA > 0 || rB > 0) {
+                    sumR1 += rA;
+                    sumR2 += rB;
+                    sumDr += deltaR;
+                    validCnt++;
+                }
+
+                const trA = document.createElement("tr");
+                trA.innerHTML = `
+ <td rowspan="2" contenteditable="true" onblur="updateDb2Loc(${i}, this.textContent, this)"><strong>${locName}</strong></td>
+ <td><span class="ch-badge ch-badge-a">Nguồn 1 (Kênh A)</span></td>
+ <td contenteditable="true" onblur="updateDb2(${i}, 'a', 'r', this.textContent, this)">${rA.toFixed(2)}</td>
+ <td contenteditable="true" onblur="updateDb2(${i}, 'a', 'lMin', this.textContent, this)">${(Number(pair.a.lMin) || 0).toFixed(1)}</td>
+ <td contenteditable="true" onblur="updateDb2(${i}, 'a', 'lMax', this.textContent, this)">${(Number(pair.a.lMax) || 0).toFixed(1)}</td>
+ <td contenteditable="true" onblur="updateDb2(${i}, 'a', 'lAvg', this.textContent, this)">${(Number(pair.a.lAvg) || 0).toFixed(1)}</td>
+ <td rowspan="2"><strong>${deltaR.toFixed(2)} m</strong></td>
+ <td rowspan="2" class="no-print col-delete"><button type="button" class="row-del-btn" onclick="delDb2(${i})" title="Xóa cặp đo này">×</button></td>
+ `;
+                tbody.appendChild(trA);
+
+                const trB = document.createElement("tr");
+                trB.innerHTML = `
+ <td><span class="ch-badge ch-badge-b">Nguồn 2 (Kênh B)</span></td>
+ <td contenteditable="true" onblur="updateDb2(${i}, 'b', 'r', this.textContent, this)">${rB.toFixed(2)}</td>
+ <td contenteditable="true" onblur="updateDb2(${i}, 'b', 'lMin', this.textContent, this)">${(Number(pair.b.lMin) || 0).toFixed(1)}</td>
+ <td contenteditable="true" onblur="updateDb2(${i}, 'b', 'lMax', this.textContent, this)">${(Number(pair.b.lMax) || 0).toFixed(1)}</td>
+ <td contenteditable="true" onblur="updateDb2(${i}, 'b', 'lAvg', this.textContent, this)">${(Number(pair.b.lAvg) || 0).toFixed(1)}</td>
+ `;
+                tbody.appendChild(trB);
+            });
+
+            const badge = byId("dbCountBadge2");
+            if (badge) badge.textContent = `${dbRows2.length} / ${MAX_ROWS} cặp`;
+            const btnAdd = byId("btnAddDb2");
+            if (btnAdd) btnAdd.disabled = dbRows2.length >= MAX_ROWS;
+
+            const resEl = byId("resDualDb");
+            if (resEl) {
+                if (validCnt > 0) {
+                    resEl.innerHTML = `<strong>Kết quả đo mức cường độ âm 2 nguồn:</strong> &nbsp;
+ <i>r</i><sub>1</sub> = ${(sumR1 / validCnt).toFixed(2)} m &nbsp;|&nbsp;
+ <i>r</i><sub>2</sub> = ${(sumR2 / validCnt).toFixed(2)} m &nbsp;|&nbsp;
+ Khoảng cách hai nguồn Δ<i>r</i> = |<i>r</i><sub>1</sub> − <i>r</i><sub>2</sub>| = <strong>${(sumDr / validCnt).toFixed(2)} m</strong>`;
+                } else {
+                    resEl.innerHTML = `<strong>Kết quả đo mức cường độ âm 2 nguồn:</strong> &nbsp;
+ <i>r</i><sub>1</sub> = — m &nbsp;|&nbsp; <i>r</i><sub>2</sub> = — m &nbsp;|&nbsp; Khoảng cách hai nguồn Δ<i>r</i> = |<i>r</i><sub>1</sub> − <i>r</i><sub>2</sub>| = — m`;
+                }
+            }
+        }
+
+        function updateDb2Loc(i, val, cellEl) {
+            const prevVal = dbRows2[i]?.a?.viTri || `Điểm ${i + 1}`;
+            const clean = String(val || "").trim();
+            if (clean && dbRows2[i]) {
+                dbRows2[i].a.viTri = clean;
+                dbRows2[i].b.viTri = clean;
+            } else if (cellEl) {
+                cellEl.textContent = prevVal;
+            }
+            renderDbTable2();
+            renderDbGraphs2();
+            persistReportEdits();
+        }
+
+        function updateDb2(i, chKey, field, val, cellEl) {
+            const prevVal = dbRows2[i]?.[chKey]?.[field];
+            const n = parseFloat(String(val || "").replace(",", ".").trim());
+            if (!isNaN(n) && (field !== "r" || n >= 0)) {
+                dbRows2[i][chKey][field] = n;
+            } else {
+                if (cellEl && prevVal !== undefined) cellEl.textContent = Number(prevVal).toFixed(field === "r" ? 2 : 1);
+                showToast("Vui lòng nhập giá trị số hợp lệ!");
+            }
+            renderDbTable2();
+            renderDbGraphs2();
+            persistReportEdits();
+        }
+
+        function addDbRow2() {
+            if (dbRows2.length >= MAX_ROWS) {
+                showToast(`Đã đạt tối đa ${MAX_ROWS} cặp đo 2 nguồn!`);
+                return;
+            }
+            const nextIdx = dbRows2.length;
+            const prevPair = dbRows2[nextIdx - 1];
+            const nextRA = prevPair ? Number(prevPair.a.r) + 0.5 : 0.5;
+            const nextRB = prevPair ? Number(prevPair.b.r) + 0.5 : 1.0;
+            const label = `Điểm ${nextIdx + 1}`;
+            dbRows2.push({
+                a: { kenh: "Kênh A", viTri: label, r: nextRA, lMin: 0, lMax: 0, lAvg: 0, imageBase64: null },
+                b: { kenh: "Kênh B", viTri: label, r: nextRB, lMin: 0, lMax: 0, lAvg: 0, imageBase64: null }
+            });
+            renderDbTable2();
+            renderDbGraphs2();
+            persistReportEdits();
+        }
+
+        function delDb2(i) {
+            if (dbRows2.length <= 1) {
+                showToast("Cần giữ lại ít nhất 1 cặp đo ở bảng IV.4!");
+                return;
+            }
+            dbRows2.splice(i, 1);
+            renderDbTable2();
+            renderDbGraphs2();
+            persistReportEdits();
         }
 
         // -------------------------------------------------------------------------
@@ -4882,13 +5248,25 @@
         }
 
         function appendDbCsvRows(targetRows) {
-            targetRows.push(["PHẦN IV: ĐO MỨC CƯỜNG ĐỘ ÂM (dB)"], ["Vị trí đo", "Khoảng cách r (m)", "L_min (dB)", "L_max (dB)", "L_TB (dB)", "Độ giảm ΔL (dB)"]);
-            const baseL = dbRows.length ? Number(dbRows[0].lAvg) || 0 : 0;
-            dbRows.forEach((r, i) => {
-                const dL = (Number(r.lAvg) || 0) - baseL;
-                const diffStr = i === 0 ? "0.0 (Mốc)" : (dL > 0 ? "+" + dL.toFixed(1) : dL.toFixed(1));
-                targetRows.push([r.viTri, Number(r.r).toFixed(1), Number(r.lMin).toFixed(1), Number(r.lMax).toFixed(1), Number(r.lAvg).toFixed(1), diffStr]);
-            });
+            if (!dualSourceMode) {
+                targetRows.push(["PHẦN IV (IV.2): ĐO MỨC CƯỜNG ĐỘ ÂM (dB) - 1 NGUỒN"], ["Vị trí đo", "Khoảng cách r (m)", "L_min (dB)", "L_max (dB)", "L_TB (dB)", "Độ giảm ΔL (dB)"]);
+                const baseL = dbRows1.length ? Number(dbRows1[0].lAvg) || 0 : 0;
+                dbRows1.forEach((r, i) => {
+                    const dL = (Number(r.lAvg) || 0) - baseL;
+                    const diffStr = i === 0 ? "0.0 (Mốc)" : (dL > 0 ? "+" + dL.toFixed(1) : dL.toFixed(1));
+                    targetRows.push([r.viTri, Number(r.r).toFixed(2), Number(r.lMin).toFixed(1), Number(r.lMax).toFixed(1), Number(r.lAvg).toFixed(1), diffStr]);
+                });
+            } else {
+                targetRows.push(["PHẦN IV (IV.4): ĐO MỨC CƯỜNG ĐỘ ÂM (dB) - 2 NGUỒN"], ["Vị trí đo", "Nguồn / Kênh", "Khoảng cách r (m)", "L_min (dB)", "L_max (dB)", "L_TB (dB)", "Khoảng cách hai nguồn Δr = |r1 - r2| (m)"]);
+                dbRows2.forEach((pair, i) => {
+                    const locName = (pair.a.viTri || `Điểm ${i + 1}`).replace(/\s*\(Kênh [AB]\)\s*$/i, "");
+                    const rA = Number(pair.a.r) || 0;
+                    const rB = Number(pair.b.r) || 0;
+                    const deltaR = Math.abs(rA - rB).toFixed(2);
+                    targetRows.push([locName, "Nguồn 1 (Kênh A)", rA.toFixed(2), (Number(pair.a.lMin) || 0).toFixed(1), (Number(pair.a.lMax) || 0).toFixed(1), (Number(pair.a.lAvg) || 0).toFixed(1), deltaR]);
+                    targetRows.push([locName, "Nguồn 2 (Kênh B)", rB.toFixed(2), (Number(pair.b.lMin) || 0).toFixed(1), (Number(pair.b.lMax) || 0).toFixed(1), (Number(pair.b.lAvg) || 0).toFixed(1), deltaR]);
+                });
+            }
         }
 
         function exportSinglePartCSV(partId) {
