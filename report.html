@@ -984,12 +984,6 @@
                             <input type="checkbox" id="invertDarkToggle" checked onchange="redrawAllCanvases()" />
                             <span>Nền trắng đồ thị</span>
                         </label>
-                        <label class="tb-check-item"
-                            title="Khi bật, báo cáo giữ 1 dòng/cặp duy nhất và tín hiệu đồng bộ mới sẽ ghi đè trực tiếp">
-                            <input type="checkbox" id="chkSingleRowOverwrite"
-                                onchange="setSingleRowOverwriteMode(this.checked, true)" />
-                            <span>Chỉnh 1 dòng (Ghi đè)</span>
-                        </label>
                     </div>
                 </div>
 
@@ -1603,8 +1597,6 @@
 
         function updateSyncRowModeUI() {
             const btn = byId("btnSyncRowMode");
-            const chk = byId("chkSingleRowOverwrite");
-            if (chk) chk.checked = Boolean(singleRowOverwriteMode);
             if (btn) {
                 if (singleRowOverwriteMode) {
                     btn.classList.add("overwrite-active");
